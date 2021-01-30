@@ -1,2 +1,6 @@
 build
+src/lib/build/CMakeCache.txt
+src/lib/build/CMakeFiles
+src/lib/build/cmake_install.cmake
+src/lib/build/Makefile
 .vscode

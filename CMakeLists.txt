@@ -1,7 +1,16 @@
-cmake_minimum_required(VERSION 2.8.11)
-project(turnplayer)
+cmake_minimum_required(VERSION 2.8.12)
+project(TurnPlayer)
 
-set(CMAKE_CXX_STANDARD 14)
+add_definitions("-std=c++11 -W -Wall -Wextra")
+
+find_package(SDL2 REQUIRED)
+include_directories(${SDL2_INCLUDE_DIRS})
+
+include_directories(${CMAKE_SOURCE_DIR}/src/lib/include)
+find_library(soloud libsoloud.a "${CMAKE_SOURCE_DIR}/src/lib")
 
 add_executable(main
-	src/main.cpp)
+	src/main.cpp
+	src/AudioPlayer.cpp)
+
+target_link_libraries(main ${soloud} pthread ${SDL2_LIBRARIES})
