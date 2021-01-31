@@ -42,10 +42,20 @@ make
 
 ## Usage
 
-You can play a song with 
+The program can be used with multiples audio files, one folder with audio files (not subdirectories) or a mix of both.
 
 ```sh
-/main path/to/you/file.flac
+./main file/to/music1.flac file/to/music2.mp3
+./main folder
+./main folder file/to/music1.flac file/to/music2.mp3
 ```
 
-The program will close itself after the ending of the song.
+The program will close itself after the ending of the song or the playlist, each songs displays the percentage of the playback.
+
+## Issues
+
+The WavStream class seems to not work well with vectors, leading to "double free detected in tcache 2" errors and strange behaviour as corrupting the WavStream filename. 
+
+I can't make the Queue works, it doesn't make any sounds and returns an Invalid Parameters error. Scanning through the demos, trying specific Bus, I can't get a proper gapless play if Queue is not working and if it's impossible to get a vector for adding more WavStreams. 
+
+This project can't continue with SoLoud, but will stay here as an archive and a POC of a barebone CLI audio player that can play any music files or folder that it receives as arguments.

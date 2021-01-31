@@ -1,7 +1,7 @@
 cmake_minimum_required(VERSION 2.8.12)
 project(TurnPlayer)
 
-add_definitions("-std=c++11 -W -Wall -Wextra")
+add_definitions("-std=c++17 -W -Wall -Wextra")
 
 find_package(SDL2 REQUIRED)
 include_directories(${SDL2_INCLUDE_DIRS})
